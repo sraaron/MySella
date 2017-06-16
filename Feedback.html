@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-{% autoescape true %}
 <html>
 <head>
 <!-- [START css] -->
 <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
 <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css">
 <link type="text/css" rel="stylesheet" href="/bootstrap/css/sidenav.css">
+<link type="text/css" rel="stylesheet" href="/bootstrap/css/slider.css">
 <!-- [END css] -->
+<script src="client.min.js"></script>
 </head>
 <body>
 
@@ -36,18 +37,25 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
-function chngimg() {
-	var img = document.getElementById('imgplus').src;
-	if (img.indexOf('imgs/good_posture.png')!=-1) {
-		document.getElementById('imgplus').src  = 'imgs/bad_posture.png';
-	}
-	 else {
-	   document.getElementById('imgplus').src = 'imgs/good_posture.png';
-   }
+</script>
+<h5>Timer Frequency (mins)</h5>
+<input type="range" min="0" max="120" value="10" step="10" onchange="showTimerValue(this.value)"/>
+<span id="timer_range">10</span>
+<script type="text/javascript">
+function showTimerValue(newValue)
+{
+    document.getElementById("timer_range").innerHTML=newValue;
 }
 </script>
-<img id="imgplus" alt="" src="imgs/good_posture.png" onmouseover="this.style.cursor='pointer'" onclick="chngimg()"/>
-</div>
+<h5>Vibration Intensity</h5>
+<input type="range" min="0" max="5" value="2" step="1" onchange="showIntensityValue(this.value)"/>
+<span id="intensity_range">2</span>
+<script type="text/javascript">
+function showIntensityValue(newValue)
+{
+    document.getElementById("intensity_range").innerHTML=newValue;
+}
+</script>
+</div>    
 </body>
-</html>	
-{% endautoescape %}
+</html>

@@ -8,11 +8,42 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /imgs
+  static_dir: imgs
+
+- url: /googleb9bdb75fd4408a25.html
+  static_files: googleb9bdb75fd4408a25.html
+  upload: googleb9bdb75fd4408a25.html
+
+- url: /Home.html
+  static_files: Home.html
+  upload: Home.html
+
+- url: /BadPosture.html
+  static_files: BadPosture.html
+  upload: BadPosture.html
+
+- url: /Analytics.html
+  static_files: Analytics.html
+  upload: Analytics.html
+
+- url: /Feedback.html
+  static_files: Feedback.html
+  upload: Feedback.html
+
+- url: /Calibrate.html
+  static_files: Calibrate.html
+  upload: Calibrate.html
+
+- url: /AssistantMatrix.html
+  static_files: AssistantMatrix.html
+  upload: AssistantMatrix.html
+
 - url: /bootstrap
   static_dir: bootstrap
 
 - url: /.*
-  script: guestbook.app
+  script: MySella.app
 # [END handlers]
 
 # [START libraries]

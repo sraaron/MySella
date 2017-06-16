@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% autoescape true %}
 <html>
 <head>
 <!-- [START css] -->
@@ -14,7 +13,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="Home.html">Home</a>
   <a href="Calibrate.html">Calibrate</a>
-  <a href="Analytics.html">Analytics</a>
+  <a href="Calibrate.html">Analytics</a>
   <a href="Feedback.html">Feedback</a>
   <a href="AssistantMatrix.html">Assistant Matrix</a>
 </div>
@@ -23,7 +22,7 @@
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <img src="/imgs/sella_logo-mini2.png" style="display: inline-block;">
 </div>
-<div class="content">
+
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -36,18 +35,10 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
-function chngimg() {
-	var img = document.getElementById('imgplus').src;
-	if (img.indexOf('imgs/good_posture.png')!=-1) {
-		document.getElementById('imgplus').src  = 'imgs/bad_posture.png';
-	}
-	 else {
-	   document.getElementById('imgplus').src = 'imgs/good_posture.png';
-   }
-}
 </script>
-<img id="imgplus" alt="" src="imgs/good_posture.png" onmouseover="this.style.cursor='pointer'" onclick="chngimg()"/>
+<div class="content">
+	<img src="/imgs/daily_posture.png" width="400" height="100" >
+	<img src="/imgs/weekly_posture.png" width="400" height="100" >
 </div>
 </body>
-</html>	
-{% endautoescape %}
+</html>

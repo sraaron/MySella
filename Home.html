@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% autoescape true %}
 <html>
 <head>
 <!-- [START css] -->
@@ -21,7 +20,7 @@
 
 <div id="main">  
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-  <img src="/imgs/sella_logo-mini2.png" style="display: inline-block;">
+  <img src="/imgs/sella_logo-mini2.png" style="display: inline-block;" >
 </div>
 <div class="content">
 <script>
@@ -30,7 +29,6 @@ function openNav() {
     document.getElementById("main").style.marginLeft = "250px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
-
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
@@ -49,5 +47,4 @@ function chngimg() {
 <img id="imgplus" alt="" src="imgs/good_posture.png" onmouseover="this.style.cursor='pointer'" onclick="chngimg()"/>
 </div>
 </body>
-</html>	
-{% endautoescape %}
+</html>

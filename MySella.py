@@ -23,6 +23,7 @@ from google.appengine.ext import ndb
 
 import jinja2
 import webapp2
+import logging
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -91,18 +92,34 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 # [END main_page]
 
+# [START API]
+class SellaApi(webapp2.RequestHandler):
 
-# [START guestbook]
-class Guestbook(webapp2.RequestHandler):
+    def get(self):
+        posture_setting = self.request.get('ps')        
+        logging.info(posture_setting) # output is empty string
+        if posture_setting == 0:
+            self.redirect('index.html')
+        if posture_setting == 1:
+            self.redirect('BadPosture.html')
 
     def post(self):
         # We set the same parent key on the 'Greeting' to ensure each
         # Greeting is in the same entity group. Queries across the
         # single entity group will be consistent. However, the write
         # rate to a single entity group should be limited to
-        # ~1/second.
-        guestbook_name = self.request.get('guestbook_name',
-                                          DEFAULT_GUESTBOOK_NAME)
+        # ~1/second.        
+        posture_setting = self.request.POST.get('posture')
+        logging.info(posture_setting) # output is empty string
+        '''
+        self.response.write('HTTP/1.0 200 OK\r\n')
+        if posture_setting == 0:
+            template = JINJA_ENVIRONMENT.get_template('index.html')
+        elif posture_setting == 1:
+            template = JINJA_ENVIRONMENT.get_template('BadPosture.html')
+        self.response.write(template.render(template_values))
+        '''
+        """
         greeting = Greeting(parent=guestbook_key(guestbook_name))
 
         if users.get_current_user():
@@ -115,12 +132,12 @@ class Guestbook(webapp2.RequestHandler):
 
         query_params = {'guestbook_name': guestbook_name}
         self.redirect('/?' + urllib.urlencode(query_params))
+        """
 # [END guestbook]
-
 
 # [START app]
 app = webapp2.WSGIApplication([
     ('/', MainPage),
-    ('/sign', Guestbook),
+    ('/api', SellaApi),
 ], debug=True)
 # [END app]
